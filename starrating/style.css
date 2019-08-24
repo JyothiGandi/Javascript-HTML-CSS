@@ -1,0 +1,37 @@
+html,body {
+	height: 100%;
+}
+
+:root {
+	--star: "☆"; /* "\2606" */
+	--solid-star: "★"; /* "\2605" */
+}
+
+.stars {
+	display: flex;
+	width: fit-content;
+}
+
+/*
+ *	Intially empty stars are set
+ */
+.star::after {
+	content: var(--star);
+}
+
+/*
+ *	On hover
+ *		Step 1: all stars are filled
+ *		Step 2: rest from the hovered star are unfilled
+ */
+.stars:hover .starhover::after {
+	content: var(--solid-star);
+}
+.starhover:hover ~ .starhover::after {
+	content: var(--star);
+}
+
+/* this class is added through JS */
+.filledstar::after {
+	content: var(--solid-star);
+}

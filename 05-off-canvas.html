@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			html, body, main {
+				height: 100%;
+				width: 100%;
+			}
+			body {
+				margin: 0;
+				display: flex;
+			}
+			/* off canvas nav element */
+			nav {
+				min-width: 300px;
+				height: 100%;
+				position: absolute;
+				transform: translate(-300px, 0);
+				transition: transform 0.3s ease;
+				background: lightblue;
+			}
+			nav.open {
+				position: relative;
+				transform: translate(0, 0);
+			}
+			@media screen and (min-width: 600px) {
+				nav {
+					position: relative;
+					transform: translate(0, 0);
+				}
+				body {
+					/*display: flex;*/
+					flex-flow: row nowrap;
+				}
+				main {
+					width: auto;
+					flex-grow: 1;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<nav id="drawer" class="dark_blue">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</nav>
+		<main class="light_blue">
+			<p>this is body</p>
+		</main>
+	</body>
+</html>

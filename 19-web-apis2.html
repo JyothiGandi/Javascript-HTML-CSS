@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div>
+			<p>This is static text</p>
+		</div>
+		<script>
+			var mydiv = document.createElement('div');
+			var textNode = document.createTextNode('This is dynamic text');
+			mydiv.appendChild(textNode);
+			document.body.appendChild(mydiv);
+			var mydiv2 = document.createElement('div');
+			mydiv2.textContent = 'This is dynamic text2';
+			mydiv.appendChild(mydiv2);
+			mydiv.insertAdjacentHTML('BeforeBegin', '<div>This is dynamic text3</div>');
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+	<body>
+		<div class="container">
+			<form class="my-form">
+				<input type="text" name="userName">
+				<input type="password" name="userPassword">
+				<!--input type="submit" value="submit"-->
+				<!--button onclick="validateAndSubmit()">submit</button-->
+				<button id="submitButton">submit</button>
+			</form>
+		</div>
+		<div id="message" class="class1"></div>
+	</body>
+	<script type="text/javascript">
+		var userPassword = document.querySelector("form.my-form  input[name='userPassword']");
+		var message = document.querySelector('#message');
+		var submitBtn = document.querySelector('#submitButton');
+		submitBtn.addEventListener('click', (ele) => {
+			console.log('event listeneing to submit', ele);
+		});
+		function validateAndSubmit() {
+			console.log('validateAndSubmit function called');
+		}
+
+		function showError() {
+			message.setAttribute('style', 'color:red; font-size:10px');
+			message.classList.add('defaultclass');
+			message.classList.toggle('errorclass')
+			message.textContent = 'Password is required'
+		}
+		function showLengthError() {
+			if(message.classList.contains('success')) {
+				message.classList.remove('success', 'smessage');
+			}
+			message.classList.add('error', 'errorclass');
+			message.setAttribute('style', 'color:green; font-size:11px')
+			message.textContent = "length must must be greater that > 5"
+		}
+		userPassword.onfocus = () => {
+			console.log('on focus', userPassword.value);
+
+		}
+		userPassword.onblur = () => {
+			console.log('on blur', userPassword.value);
+			if (!userPassword.value) showError();
+		}
+		userPassword.onkeyup = () => {
+			console.log('on key up', userPassword.value);
+			if (userPassword.value.length < 5) showLengthError();
+		}
+	</script>
+</html>
